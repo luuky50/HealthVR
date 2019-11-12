@@ -37,7 +37,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Intensity
-    value: 2
+    value: 1.25
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Range
@@ -133,5 +133,5 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_ShadowAngle
-    value: 0
+    value: 1
     objectReference: {fileID: 0}

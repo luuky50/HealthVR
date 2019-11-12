@@ -1,9 +1,7 @@
 {
     "name": "SteamVR_Editor",
     "references": [
-        "SteamVR",
-		"SteamVR_Windows_EditorHelper",
-		"Unity.ugui"
+        "SteamVR"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
