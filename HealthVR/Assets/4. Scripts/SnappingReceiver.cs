@@ -18,6 +18,7 @@ public class SnappingReceiver : MonoBehaviour
 	{
 		meshRenderer.enabled = true;
 		meshRenderer.material = meshRenderer.materials[0];
+		desiredInteractable.onDetachedFromHand += SnapToPlace;
 	}
 
 	private void SnapToPlace(Hand hand)
@@ -30,6 +31,7 @@ public class SnappingReceiver : MonoBehaviour
 	{
 		meshRenderer.material = meshRenderer.materials[1];
 		meshRenderer.enabled = false;
+		desiredInteractable.onDetachedFromHand -= SnapToPlace;
 	}
 
 
@@ -41,13 +43,6 @@ public class SnappingReceiver : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerStay(Collider col)
-	{
-		if(col.GetComponent<Interactable>() == desiredInteractable)
-		{
-			desiredInteractable.onDetachedFromHand += SnapToPlace;
-		}
-	}
 
 	private void OnTriggerExit(Collider col)
 	{
