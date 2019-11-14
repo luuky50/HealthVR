@@ -8,30 +8,39 @@ public class SnappingReceiver : MonoBehaviour
 
 	[SerializeField] private Interactable desiredInteractable;
 	[SerializeField] private MeshRenderer meshRenderer;
-
+	private bool hasHighlighted = false;
+	private bool placed = false;
 	private void Start()
 	{
 		Debug.Log("Code Is in fact being run");
 	}
 
-	private void HighLightEnter()
+	private void HighLightEnter(MeshFilter otherMeshFilter)
 	{
+		MeshFilter meshFilter = GetComponent<MeshFilter>();
+		meshFilter.mesh = otherMeshFilter.mesh;
 		meshRenderer.enabled = true;
 		meshRenderer.material = meshRenderer.materials[0];
 		desiredInteractable.onDetachedFromHand += SnapToPlace;
+		hasHighlighted = true;
+		
 	}
 
 	private void SnapToPlace(Hand hand)
 	{
 		meshRenderer.material = meshRenderer.materials[1];
 		desiredInteractable.gameObject.SetActive(false);
+		placed = true;
 	}
 
 	private void HighLightExit()
 	{
-		meshRenderer.material = meshRenderer.materials[1];
-		meshRenderer.enabled = false;
+		if (!placed)
+		{
+			meshRenderer.enabled = false;
+		}
 		desiredInteractable.onDetachedFromHand -= SnapToPlace;
+		hasHighlighted = false;
 	}
 
 
@@ -39,14 +48,18 @@ public class SnappingReceiver : MonoBehaviour
 	{
 		if (col.GetComponent<Interactable>() == desiredInteractable)
 		{
-			HighLightEnter();
+			Debug.Log("Highlighting");
+			HighLightEnter(col.GetComponentInChildren<MeshFilter>());
 		}
 	}
 
 
 	private void OnTriggerExit(Collider col)
 	{
-		HighLightExit();
+		if (hasHighlighted)
+		{
+			HighLightExit();
+		}
 	}
 
 }
