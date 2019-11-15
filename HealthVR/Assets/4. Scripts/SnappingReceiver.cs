@@ -65,7 +65,9 @@ public class SnappingReceiver : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
+		//TODO: Change this if statement to the input of the trigger being put up
 		if(Input.GetKeyUp(KeyCode.Joystick1Button7) || Input.GetKeyUp(KeyCode.Joystick2Button7)){
+			//Check if its an interactable object
 			if (other.GetComponent<Interactable>() != null) {
 				SnapToPlace(other.gameObject);
 			}
