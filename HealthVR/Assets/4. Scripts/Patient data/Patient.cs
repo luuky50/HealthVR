@@ -18,4 +18,6 @@ public class Patient
 		HairColor = hairColor;
 		BloodType = bloodType;
 	}
+
+	public void DebugPatient() => Debug.Log($"{Name}, {Gender}, {EyeColor}, {HairColor}, {BloodType}");
 }
