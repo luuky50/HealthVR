@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR.InteractionSystem;
 
 public class SnappingReceiver : MonoBehaviour
@@ -10,6 +11,9 @@ public class SnappingReceiver : MonoBehaviour
 	[SerializeField] private MeshRenderer meshRenderer;
 	private bool hasHighlighted = false;
 	private bool placed = false;
+
+	public UnityEvent OnCorrectPlacement;
+
 	private void Start()
 	{
 		Debug.Log("Code Is in fact being run");
@@ -21,16 +25,15 @@ public class SnappingReceiver : MonoBehaviour
 		meshFilter.mesh = otherMeshFilter.mesh;
 		meshRenderer.enabled = true;
 		meshRenderer.material = meshRenderer.materials[0];
-		desiredInteractable.onDetachedFromHand += SnapToPlace;
 		hasHighlighted = true;
-		
+
 	}
 
-	private void SnapToPlace(Hand hand)
+	private void SnapToPlace(GameObject attachedObject)
 	{
-		desiredInteractable.transform.parent = this.transform;
-		desiredInteractable.transform.position = Vector3.zero;
-
+		attachedObject.transform.parent = this.transform;
+		attachedObject.transform.position = Vector3.zero;
+		CheckCorrectPlaced(attachedObject.GetComponent<Interactable>());
 	}
 
 	private void HighLightExit()
@@ -39,22 +42,38 @@ public class SnappingReceiver : MonoBehaviour
 		{
 			meshRenderer.enabled = false;
 		}
-		desiredInteractable.onDetachedFromHand -= SnapToPlace;
 		hasHighlighted = false;
 	}
 
 
+	private void CheckCorrectPlaced(Interactable attachedInteractable)
+	{
+		if (attachedInteractable == desiredInteractable)
+		{
+			OnCorrectPlacement.Invoke();
+		}
+	}
+
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.GetComponent<Interactable>() == desiredInteractable)
+		if (col.GetComponent<Interactable>() != null && !placed)
 		{
 			Debug.Log("Highlighting");
 			HighLightEnter(col.GetComponentInChildren<MeshFilter>());
 		}
 	}
 
+	private void OnTriggerStay(Collider other)
+	{
+		if(Input.GetKeyUp(KeyCode.Joystick1Button7) || Input.GetKeyUp(KeyCode.Joystick2Button7)){
+			if (other.GetComponent<Interactable>() != null) {
+				SnapToPlace(other.gameObject);
+					}
+		}
+	}
 
 	private void OnTriggerExit(Collider col)
+
 	{
 		if (hasHighlighted)
 		{
