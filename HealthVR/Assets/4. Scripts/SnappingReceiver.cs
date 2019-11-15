@@ -68,7 +68,7 @@ public class SnappingReceiver : MonoBehaviour
 		if(Input.GetKeyUp(KeyCode.Joystick1Button7) || Input.GetKeyUp(KeyCode.Joystick2Button7)){
 			if (other.GetComponent<Interactable>() != null) {
 				SnapToPlace(other.gameObject);
-					}
+			}
 		}
 	}
 
