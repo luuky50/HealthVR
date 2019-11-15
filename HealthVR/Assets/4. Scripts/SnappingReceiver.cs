@@ -28,9 +28,9 @@ public class SnappingReceiver : MonoBehaviour
 
 	private void SnapToPlace(Hand hand)
 	{
-		meshRenderer.material = meshRenderer.materials[1];
-		desiredInteractable.gameObject.SetActive(false);
-		placed = true;
+		desiredInteractable.transform.parent = this.transform;
+		desiredInteractable.transform.position = Vector3.zero;
+
 	}
 
 	private void HighLightExit()
