@@ -2,20 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public static class EnumExtentions<TEnum>
+namespace UniFix
 {
-	public static TEnum GetRandomEnum()
+	public static class EnumExtentions<TEnum>
 	{
-		if(!typeof(TEnum).IsEnum)
+		public static TEnum GetRandomEnum()
 		{
-			throw new ArgumentException("TEnum is not an enum.");
+			if(!typeof(TEnum).IsEnum)
+			{
+				throw new ArgumentException("TEnum is not an enum.");
+			}
+
+			int enumCount = Enum.GetNames(typeof(TEnum)).Length;
+			int randomEnumNumber = UnityEngine.Random.Range(0, enumCount);
+
+			TEnum randomEnum = (TEnum)Enum.ToObject(typeof(TEnum), randomEnumNumber);
+
+			return randomEnum;
 		}
-
-		int enumCount = Enum.GetNames(typeof(TEnum)).Length;
-		int randomEnumNumber = UnityEngine.Random.Range(0, enumCount);
-
-		TEnum randomEnum = (TEnum)Enum.ToObject(typeof(TEnum), randomEnumNumber);
-
-		return randomEnum;
 	}
 }
