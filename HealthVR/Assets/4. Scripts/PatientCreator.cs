@@ -1,14 +1,24 @@
-﻿
+﻿using UniFix;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PatientCreator : MonoBehaviour
+public class PatientCreator : Singleton<PatientCreator>
 {
 	public Patient Patient { get; private set; }
 	private string[] maleNames = { "Josh", "Jim", "Dirk" };
 	private string[] femaleNames = { "Jenna", "Debby", "Daphne" };
-		
+
+	protected override void Awake()
+	{
+		base.Awake();
+	}
+
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+	}
+
 	public void CreateNewPatient()
 	{
 		GenderType currentGender = EnumExtentions<GenderType>.GetRandomEnum();
