@@ -4,15 +4,50 @@ using UnityEngine;
 
 public class BedMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Its protected from somebody changes instance value
+    private float centerMove = -0.288f;
+    private float enterDuration = 3;
 
-    // Update is called once per frame
-    void Update()
+    private float exitMove = 6.26f;
+    private float exitDuration = 3;
+
+    [SerializeField]
+    private bool Enter1;
+
+    private void Start()
     {
-        
+        if (Enter1)
+            Enter();
+        else
+            Exit();
+    }
+    private void Enter()
+    {
+        LeanTween.move(gameObject, new Vector3(centerMove, transform.position.y, transform.position.z), enterDuration).setEase(LeanTweenType.easeInOutExpo);
+    }
+    private void Exit()
+    {
+        LeanTween.move(gameObject, new Vector3(exitMove, transform.position.y, transform.position.z), exitDuration).setEase(LeanTweenType.easeInOutExpo).setOnComplete(OnExitComplete);
+    }
+    private void OnExitComplete()
+    {
+        gameObject.SetActive(false);
+        //Add code when exit animation is completed :') 
+        //                     _
+        //                  __~a~_
+        //                  ~~;  ~_
+        //    _                ~  ~_                _
+        //   '_\;__._._._._._._]   ~_._._._._._.__;/_`
+        //   '(/'/'/'/'|'|'|'| ( 卐 )|'|'|'|'\'\'\'\)'
+        //   (/ / / /, | | | |(/    \) | | | ,\ \ \ \)
+        //  (/ / / / / | | | ^(/    \) ^ | | \ \ \ \ \)
+        // (/ / / / /  ^ ^ ^   (/  \)    ^ ^  \ \ \ \ \)
+        //(/ / / / ^          / (||)|          ^ \ \ \ \)
+        //^ / / ^            M  /||\M             ^ \ \ ^
+        // ^ ^                  /||\                 ^ ^
+        //                     //||\\
+        //                     //||\\
+        //                     //||\\         
+        //                     '/||\'
     }
 }
