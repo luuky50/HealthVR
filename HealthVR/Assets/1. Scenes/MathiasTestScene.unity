@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 208592282}
   - component: {fileID: 208592281}
   - component: {fileID: 208592280}
+  - component: {fileID: 208592287}
   m_Layer: 0
   m_Name: MechnialHeart_Wrong
   m_TagString: Untagged
@@ -400,6 +401,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208592278}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &208592287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208592278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a00e8caaafc29447b66cde036329f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &464884981
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +429,7 @@ GameObject:
   - component: {fileID: 464884985}
   - component: {fileID: 464884984}
   - component: {fileID: 464884983}
+  - component: {fileID: 464884990}
   m_Layer: 0
   m_Name: MechnialHeart_Wrong
   m_TagString: Untagged
@@ -679,6 +693,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464884981}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &464884990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464884981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a00e8caaafc29447b66cde036329f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &470464458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1655,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000685148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ef776f4c962764baccfc8c9b3df33e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a00e8caaafc29447b66cde036329f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1120342471
@@ -2042,6 +2068,7 @@ GameObject:
   - component: {fileID: 1481053377}
   - component: {fileID: 1481053376}
   - component: {fileID: 1481053375}
+  - component: {fileID: 1481053382}
   m_Layer: 0
   m_Name: MechnialHeart_Wrong
   m_TagString: Untagged
@@ -2305,6 +2332,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481053373}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1481053382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481053373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a00e8caaafc29447b66cde036329f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1686128750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2398,9 +2437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3db1d63700877f4aa9841ec0b2ac4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handType: 2
-  grabAction:
-    actionPath: /actions/default/in/GrabGrip
+  grabPinchAction:
+    actionPath: 
     needsReinit: 0
 --- !u!114 &1686128754
 MonoBehaviour:
@@ -2414,9 +2452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3db1d63700877f4aa9841ec0b2ac4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handType: 1
-  grabAction:
-    actionPath: /actions/default/in/GrabGrip
+  grabPinchAction:
+    actionPath: 
     needsReinit: 0
 --- !u!1001 &1755363992
 PrefabInstance:
@@ -2541,6 +2578,7 @@ GameObject:
   - component: {fileID: 1925485800}
   - component: {fileID: 1925485799}
   - component: {fileID: 1925485798}
+  - component: {fileID: 1925485801}
   m_Layer: 0
   m_Name: TriggerBox
   m_TagString: Untagged
@@ -2556,7 +2594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925485796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5185, y: 0.163, z: -0.2179}
+  m_LocalPosition: {x: 0.5185, y: 0.609, z: -0.2179}
   m_LocalScale: {x: 0.43414912, y: 1, z: 0.37300462}
   m_Children: []
   m_Father: {fileID: 1156808153}
@@ -2573,8 +2611,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.37681568, z: 1}
+  m_Center: {x: 0, y: -0.12621456, z: 0}
 --- !u!23 &1925485799
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2620,6 +2658,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925485796}
   m_Mesh: {fileID: 0}
+--- !u!114 &1925485801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925485796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb35298d5d3ec646b2e85c4b0472c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029266752
 GameObject:
   m_ObjectHideFlags: 0
