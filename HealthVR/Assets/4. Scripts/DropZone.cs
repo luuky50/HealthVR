@@ -25,7 +25,7 @@ public class DropZone : MonoBehaviour
 
 		occupyingObject.InDropZone = true;
 		occupyingObject.transform.position = cachedTransform.position;
-		occupyingObject.GetComponent<Rigidbody>().isKinematic = true;
+		occupyingObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
 
 		this.occupyingObject = occupyingObject;
 	}
@@ -41,6 +41,6 @@ public class DropZone : MonoBehaviour
 		IsOccupied = false;
 
 		occupyingObject.InDropZone = false;
-		occupyingObject.GetComponent<Rigidbody>().isKinematic = false;
+		occupyingObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 	}
 }
