@@ -1632,10 +1632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef776f4c962764baccfc8c9b3df33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inDropZone: 0
-  actionBinding:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
 --- !u!1001 &1120342471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2334,7 +2330,7 @@ PrefabInstance:
     - target: {fileID: 909167873414821048, guid: fac5950861db646439efc0ab6058b315,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.94
+      value: -1.02
       objectReference: {fileID: 0}
     - target: {fileID: 909167873414821048, guid: fac5950861db646439efc0ab6058b315,
         type: 3}

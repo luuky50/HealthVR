@@ -6,19 +6,24 @@ namespace UniFix
 {
 	public static class EnumExtentions<TEnum>
 	{
-		public static TEnum GetRandomEnum()
+		public static int Count => Enum.GetNames(typeof(TEnum)).Length;
+
+		public static TEnum Random
 		{
-			if(!typeof(TEnum).IsEnum)
+			get
 			{
-				throw new ArgumentException("TEnum is not an enum.");
+				if (!typeof(TEnum).IsEnum)
+				{
+					throw new ArgumentException("TEnum is not an enum");
+				}
+
+				int count = Enum.GetNames(typeof(TEnum)).Length;
+				int randomNumber = UnityEngine.Random.Range(0, count);
+
+				TEnum randomizedEnum = (TEnum)Enum.ToObject(typeof(TEnum), randomNumber);
+
+				return randomizedEnum;
 			}
-
-			int enumCount = Enum.GetNames(typeof(TEnum)).Length;
-			int randomEnumNumber = UnityEngine.Random.Range(0, enumCount);
-
-			TEnum randomEnum = (TEnum)Enum.ToObject(typeof(TEnum), randomEnumNumber);
-
-			return randomEnum;
 		}
 	}
 }
