@@ -27,7 +27,7 @@ public class DropZone : MonoBehaviour
 
 		occupyingPickupable.InDropZone = true;
 		occupyingPickupable.transform.position = cachedTransform.position;
-		occupyingPickupable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+		occupyingPickupable.CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
 		if(!IsRightDroppedObject(occupyingPickupable))
 		{
@@ -47,7 +47,7 @@ public class DropZone : MonoBehaviour
 		IsOccupied = false;
 
 		occupyingPickupable.InDropZone = false;
-		occupyingPickupable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+		occupyingPickupable.CachedRigidbody.constraints = RigidbodyConstraints.None;
 	}
 
 	private bool IsRightDroppedObject(Pickupable occupyingPickupable)
