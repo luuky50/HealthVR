@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-	[HideInInspector] public UniFixEvent onMinigameCompleted;
+	[HideInInspector] public UniFixEvent onMinigameCompleted = new UniFixEvent();
+	[HideInInspector] public UniFixEvent onAllMinigamesCompleted = new UniFixEvent();
 
 	protected override void Awake()
 	{
@@ -13,6 +14,7 @@ public class GameManager : Singleton<GameManager>
 	private void OnEnable()
 	{
 		onMinigameCompleted.AddListener(OnMinigameCompleted);
+		onAllMinigamesCompleted.AddListener(OnAllMinigamesCompleted);
 	}
 
 	protected override void OnDestroy()
@@ -23,5 +25,10 @@ public class GameManager : Singleton<GameManager>
 	private void OnMinigameCompleted()
 	{
 		Debug.Log("Minigame completed!");
+	}
+
+	private void OnAllMinigamesCompleted()
+	{
+		Debug.Log("All Minigames completed!");
 	}
 }
