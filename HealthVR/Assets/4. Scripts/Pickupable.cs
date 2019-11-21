@@ -8,6 +8,7 @@ public class Pickupable : MonoBehaviour
 
 	public bool InDropZone { get; set; } = false;
 	public Rigidbody CachedRigidbody { get; set; } = null;
+	public bool ShouldSnapBack { get; set; } = false;
 	private DropZone dropZone = null;
 	private Interactable interactable = null;
 	private Transform cachedTransform = null;
@@ -31,35 +32,25 @@ public class Pickupable : MonoBehaviour
 
 	public void ResetPosition()
 	{
-		if(inHand)
-		{
-			return;
-		}
-
-		Debug.Log("Resetting position...");
-		cachedTransform.position = beginPosition;
-		CachedRigidbody.constraints = RigidbodyConstraints.None;
-	}
-
-	private void Update()
-	{
-		if(cachedTransform.position == beginPosition)
-		{
-			return;
-		}
-
-		if (inHand)
+		if (!ShouldSnapBack)
 		{
 			return;
 		}
 
 		teleportBackTimer -= Time.deltaTime;
 
-		if(teleportBackTimer > 0)
+		if (teleportBackTimer > 0)
 		{
 			return;
 		}
 
+		Debug.Log("Resetting position");
+		cachedTransform.position = beginPosition;
+		CachedRigidbody.constraints = RigidbodyConstraints.None;
+	}
+
+	private void Update()
+	{
 		ResetPosition();
 	}
 
@@ -90,6 +81,8 @@ public class Pickupable : MonoBehaviour
 	private void OnDetachedFromHand(Hand hand)
 	{
 		inHand = false;
+		ShouldSnapBack = true;
+		
 		teleportBackTimer += TELEPORT_BACK_TIME;
 	}
 }

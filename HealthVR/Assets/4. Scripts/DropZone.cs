@@ -24,6 +24,7 @@ public class DropZone : MonoBehaviour
 		this.occupyingPickupable = occupyingPickupable;
 
 		IsOccupied = true;
+		occupyingPickupable.ShouldSnapBack = false;
 
 		occupyingPickupable.InDropZone = true;
 		occupyingPickupable.transform.position = cachedTransform.position;
