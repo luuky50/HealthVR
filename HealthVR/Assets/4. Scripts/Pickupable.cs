@@ -5,14 +5,13 @@ using Valve.VR.InteractionSystem;
 public class Pickupable : MonoBehaviour
 {
 	//TODO: Pickupable needs a type to detect.
+	public bool InDropZone { get; set; } = false;
 	private DropZone dropZone = null;
-	private Transform cachedTransform = null;
 	private Interactable interactable = null;
 	private bool inHand = false;
 
 	private void OnEnable()
 	{
-		cachedTransform = GetComponent<Transform>();
 		interactable = GetComponent<Interactable>();
 
 		InputManager.Instance.OnGrabPinchUp += OnGrabPinchUp;
@@ -21,16 +20,8 @@ public class Pickupable : MonoBehaviour
 		interactable.onDetachedFromHand += OnDetachedFromHand;
 	}
 
-	private void OnDisable()
-	{
-		InputManager.Instance.OnGrabPinchUp -= OnGrabPinchUp;
-		InputManager.Instance.OnGrabPinchDown -= OnGrabPinchDown;
-		interactable.onAttachedToHand -= OnAttachedToHand;
-		interactable.onDetachedFromHand -= OnDetachedFromHand;
-	}
-
 	private void OnTriggerEnter(Collider other) => dropZone = other.GetComponent<DropZone>();
-	private void OnTriggerExit(Collider other) => dropZone = other.GetComponent<DropZone>();
+	private void OnTriggerExit(Collider other) => dropZone = null;
 
 	private void OnGrabPinchUp(Valve.VR.SteamVR_Input_Sources inputScource)
 	{
@@ -39,12 +30,12 @@ public class Pickupable : MonoBehaviour
 			return;
 		}
 
-		dropZone.Occupy(cachedTransform);
+		dropZone.Occupy(this);
 	}
 
 	private void OnGrabPinchDown(Valve.VR.SteamVR_Input_Sources inputScource)
 	{
-		if (dropZone == null || !inHand)
+		if (!InDropZone)
 		{
 			return;
 		}

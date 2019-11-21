@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 854b4813b933c27419b8ae5c239bd187
+guid: 59b9c6116a2dfbb448d19062bd2fbe2b
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: EyeColor
-    second: {fileID: 2100000, guid: ba8fc2063a6f6684fb048c1cf7e1ca9b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EyeWhite
-    second: {fileID: 2100000, guid: 3722711dc418acf4e97e18aa25f670e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HairColor
-    second: {fileID: 2100000, guid: 9c6db04ddbe65be4599ae34e12074c87, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SkinColor
-    second: {fileID: 2100000, guid: 885d6f69a6228f1449eafa279f27d029, type: 2}
+      name: HeartFiber
+    second: {fileID: 2100000, guid: b0e3cdb98edb9f340bce377b7f84581d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -80,7 +65,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
