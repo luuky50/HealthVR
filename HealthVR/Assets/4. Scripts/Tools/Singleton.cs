@@ -38,6 +38,8 @@ namespace UniFix
 					{
 						hideFlags = HideFlags.HideAndDontSave
 					};
+
+					newInstance = gameObject.AddComponent<T>();
 				}
 
 				Instance = newInstance;
@@ -70,7 +72,7 @@ namespace UniFix
 
 		protected virtual void OnDestroy()
 		{
-			if(instance == this)
+			if (instance == this)
 			{
 				instance = null;
 			}

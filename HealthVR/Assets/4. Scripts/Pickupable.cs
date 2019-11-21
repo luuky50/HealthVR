@@ -1,17 +1,18 @@
-﻿using UnityEngine;
+﻿using UniFix;
+using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-[RequireComponent(typeof(Transform)), RequireComponent(typeof(Interactable)), RequireComponent(typeof(Rigidbody))]
-public class Pickupable : MonoBehaviour
+[RequireComponent(typeof(Interactable)), RequireComponent(typeof(Rigidbody))]
+public class Pickupable : MonoBehaviourExtra
 {
 	private const float TELEPORT_BACK_TIME = 3.0f;
 
 	public bool InDropZone { get; set; } = false;
 	public Rigidbody CachedRigidbody { get; set; } = null;
 	public bool ShouldSnapBack { get; set; } = false;
+
 	private DropZone dropZone = null;
 	private Interactable interactable = null;
-	private Transform cachedTransform = null;
 	private bool inHand = false;
 	private Vector3 beginPosition = Vector3.zero;
 	private float teleportBackTimer = 0.0f;
@@ -19,10 +20,9 @@ public class Pickupable : MonoBehaviour
 	private void OnEnable()
 	{
 		interactable = GetComponent<Interactable>();
-		cachedTransform = GetComponent<Transform>();
 		CachedRigidbody = GetComponent<Rigidbody>();
 
-		beginPosition = cachedTransform.position;
+		beginPosition = CachedTransform.position;
 
 		InputManager.Instance.OnGrabPinchUp += OnGrabPinchUp;
 		InputManager.Instance.OnGrabPinchDown += OnGrabButtonDown;
@@ -45,7 +45,7 @@ public class Pickupable : MonoBehaviour
 		}
 
 		Debug.Log("Resetting position");
-		cachedTransform.position = beginPosition;
+		CachedTransform.position = beginPosition;
 		CachedRigidbody.constraints = RigidbodyConstraints.None;
 	}
 
