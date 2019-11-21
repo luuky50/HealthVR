@@ -16,7 +16,8 @@ public class DropZone : MonoBehaviour
 	public void Occupy(Pickupable occupyingPickupable)
 	{
 		if (IsOccupied)
-		{			
+		{
+			occupyingPickupable.ResetPosition();
 			return;
 		}
 
@@ -43,7 +44,6 @@ public class DropZone : MonoBehaviour
 			return;
 		}
 
-		Debug.Log($"Unocupping {name}...");
 		IsOccupied = false;
 
 		occupyingPickupable.InDropZone = false;

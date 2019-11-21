@@ -4,20 +4,60 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Transform)), RequireComponent(typeof(Interactable))]
 public class Pickupable : MonoBehaviour
 {
-	//TODO: Pickupable needs a type to detect.
+	private const float TELEPORT_BACK_TIME = 3.0f;
+
 	public bool InDropZone { get; set; } = false;
 	private DropZone dropZone = null;
 	private Interactable interactable = null;
+	private Transform cachedTransform = null;
 	private bool inHand = false;
+	private Vector3 beginPosition = Vector3.zero;
+	private float teleportBackTimer = 0.0f;
 
 	private void OnEnable()
 	{
 		interactable = GetComponent<Interactable>();
+		cachedTransform = GetComponent<Transform>();
+
+		beginPosition = cachedTransform.position;
 
 		InputManager.Instance.OnGrabPinchUp += OnGrabPinchUp;
-		InputManager.Instance.OnGrabPinchDown += OnGrabPinchDown;
+		InputManager.Instance.OnGrabPinchDown += OnGrabButtonDown;
 		interactable.onAttachedToHand += OnAttachedToHand;
 		interactable.onDetachedFromHand += OnDetachedFromHand;
+	}
+
+	public void ResetPosition()
+	{
+		if(inHand)
+		{
+			return;
+		}
+
+		Debug.Log("Resetting position...");
+		transform.position = beginPosition;
+	}
+
+	private void Update()
+	{
+		if(cachedTransform.position == beginPosition)
+		{
+			return;
+		}
+
+		if (inHand)
+		{
+			return;
+		}
+
+		teleportBackTimer -= Time.deltaTime;
+
+		if(teleportBackTimer > 0)
+		{
+			return;
+		}
+
+		ResetPosition();
 	}
 
 	private void OnTriggerEnter(Collider other) => dropZone = other.GetComponent<DropZone>();
@@ -33,7 +73,7 @@ public class Pickupable : MonoBehaviour
 		dropZone.Occupy(this);
 	}
 
-	private void OnGrabPinchDown(Valve.VR.SteamVR_Input_Sources inputScource)
+	private void OnGrabButtonDown(Valve.VR.SteamVR_Input_Sources inputScource)
 	{
 		if (!InDropZone)
 		{
@@ -44,5 +84,9 @@ public class Pickupable : MonoBehaviour
 	}
 
 	private void OnAttachedToHand(Hand hand) => inHand = true;
-	private void OnDetachedFromHand(Hand hand) => inHand = false;
+	private void OnDetachedFromHand(Hand hand)
+	{
+		inHand = false;
+		teleportBackTimer += TELEPORT_BACK_TIME;
+	}
 }
