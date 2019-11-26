@@ -20,7 +20,6 @@ public class ButtonTouch : MonoBehaviour
         {
             Debug.Log("Button has been touched");
             LeanTween.move(gameObject, new Vector3(transform.position.x, endPos, transform.position.z), duration);
-            
         }
     }
 
