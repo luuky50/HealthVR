@@ -1,8 +1,6 @@
 ﻿using UniFix;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class PatientCreator : Singleton<PatientCreator>
 {

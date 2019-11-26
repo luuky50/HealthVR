@@ -1,18 +1,13 @@
-﻿using UnityEngine;
+﻿using UniFix;
+using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-public class DropZone : MonoBehaviour
+public class DropZone : MonoBehaviourExtra
 {
 	public bool IsOccupied { get; private set; }
 	[SerializeField] private Pickupable desiredPickupable;
-	private Transform cachedTransform = null;
 	private Pickupable occupyingPickupable = null;
-
-	private void OnEnable()
-	{
-		cachedTransform = GetComponent<Transform>();
-	}
-
+		
 	public void Occupy(Pickupable occupyingPickupable)
 	{
 		if (IsOccupied)
@@ -24,10 +19,11 @@ public class DropZone : MonoBehaviour
 		this.occupyingPickupable = occupyingPickupable;
 
 		IsOccupied = true;
+		occupyingPickupable.ShouldSnapBack = false;
 
 		occupyingPickupable.InDropZone = true;
-		occupyingPickupable.transform.position = cachedTransform.position;
-		occupyingPickupable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+		occupyingPickupable.transform.position = CachedTransform.position;
+		occupyingPickupable.CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
 		if(!IsRightDroppedObject(occupyingPickupable))
 		{
@@ -47,7 +43,7 @@ public class DropZone : MonoBehaviour
 		IsOccupied = false;
 
 		occupyingPickupable.InDropZone = false;
-		occupyingPickupable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+		occupyingPickupable.CachedRigidbody.constraints = RigidbodyConstraints.None;
 	}
 
 	private bool IsRightDroppedObject(Pickupable occupyingPickupable)
