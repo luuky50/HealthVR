@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ButtonTouch : MonoBehaviour
 {
-    private float startPos = 0.57f;
-    private float endPos = 1.325f;
+    //private float startPos = 0.57f;
+    private float endPos = 22f;
 
     private float duration = 0.5f;
 

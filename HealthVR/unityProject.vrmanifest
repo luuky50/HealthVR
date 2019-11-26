@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.healthvr.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\Unity Repositories\\HealthVR\\HealthVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "D:\\School Projects\\GameDevelopment\\17GDA\\HealthVRRepo\\HealthVR\\HealthVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "HealthVR [Testing]"

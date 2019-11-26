@@ -31,6 +31,7 @@ namespace Valve.VR.InteractionSystem
         public bool engaged = false;
         public bool buttonDown = false;
         public bool buttonUp = false;
+        public bool forceDown = false;
 
         private Vector3 startPosition;
         private Vector3 endPosition;
@@ -81,19 +82,19 @@ namespace Valve.VR.InteractionSystem
             InvokeEvents(wasEngaged, engaged);
         }
 
-        private void LateUpdate()
+        /*private void LateUpdate()
         {
-            if (hovering == false)
-            {
-                movingPart.localPosition = startPosition;
-                handEnteredPosition = endPosition;
+                if (hovering == false)
+                    {
+                    movingPart.localPosition = startPosition;
+                    handEnteredPosition = endPosition;
 
-                InvokeEvents(engaged, false);
-                engaged = false;
-            }
+                    InvokeEvents(engaged, false);
+                    engaged = false;
+                }
 
             hovering = false;
-        }
+        }*/
 
         private void InvokeEvents(bool wasEngaged, bool isEngaged)
         {
