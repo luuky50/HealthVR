@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class ButtonPuzzle : MonoBehaviour
 {
+    public bool fault = false;
     [SerializeField]
-    private GameObject[] icons;
+    private GameObject buttonPressed;
+
+    [SerializeField]
+    private List<GameObject> inputarray = new List<GameObject>();
+
+    [SerializeField]
+    private List<GameObject> correctarray = new List<GameObject>();
 
     public void ButtonPressed()
     {
-        Debug.Log("Button is pressed");
-
+        //inputarray.Add(gameObject.GetComponent());
     }
 }

@@ -42,8 +42,14 @@ namespace Valve.VR.InteractionSystem
 
         private Hand lastHoveredHand;
 
+        [SerializeField]
+        private Rigidbody rigidbody3D;
+
+        public bool test = true;
+
         private void Start()
         {
+            rigidbody3D = GetComponent<Rigidbody>();
             if (movingPart == null && this.transform.childCount > 0)
                 movingPart = this.transform.GetChild(0);
 
@@ -64,6 +70,7 @@ namespace Valve.VR.InteractionSystem
 
             if (currentDistance > enteredDistance)
             {
+                Debug.Log("123");
                 enteredDistance = currentDistance;
                 handEnteredPosition = movingPart.parent.InverseTransformPoint(hand.transform.position);
             }
@@ -82,19 +89,25 @@ namespace Valve.VR.InteractionSystem
             InvokeEvents(wasEngaged, engaged);
         }
 
-        /*private void LateUpdate()
+        private void Update()
         {
-                if (hovering == false)
-                    {
-                    movingPart.localPosition = startPosition;
-                    handEnteredPosition = endPosition;
+            Debug.Log(this.gameObject.transform.localPosition.y);
+            if(this.gameObject.transform.localPosition.y <= 0.30f)
+            {
+                this.gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, -100f, gameObject.transform.localPosition.z);
+            }
 
-                    InvokeEvents(engaged, false);
-                    engaged = false;
-                }
+           
+            if (test == false)
+            {
+                this.gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, .25f, gameObject.transform.localPosition.z);
+                movingPart.localPosition = startPosition;
+                handEnteredPosition = endPosition;
 
-            hovering = false;
-        }*/
+                InvokeEvents(engaged, false);
+                engaged = false;
+            }
+        }
 
         private void InvokeEvents(bool wasEngaged, bool isEngaged)
         {
