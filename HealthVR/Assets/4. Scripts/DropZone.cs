@@ -16,13 +16,14 @@ public class DropZone : MonoBehaviourExtra
 			return;
 		}
 
+		Debug.Log("Occupying...");
+
 		this.occupyingPickupable = occupyingPickupable;
 
 		IsOccupied = true;
-		occupyingPickupable.ShouldSnapBack = false;
 
 		occupyingPickupable.InDropZone = true;
-		occupyingPickupable.transform.position = CachedTransform.position;
+		occupyingPickupable.CachedTransform.position = CachedTransform.position;
 		occupyingPickupable.CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
 		if(!IsRightDroppedObject(occupyingPickupable))

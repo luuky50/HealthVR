@@ -1,5 +1,6 @@
 ﻿using UniFix;
 using UnityEngine;
+using System.Collections;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable)), RequireComponent(typeof(Rigidbody))]
@@ -8,21 +9,20 @@ public class Pickupable : MonoBehaviourExtra
 	private const float TELEPORT_BACK_TIME = 3.0f;
 
 	public bool InDropZone { get; set; } = false;
-	public Rigidbody CachedRigidbody { get; set; } = null;
-	public bool ShouldSnapBack { get; set; } = false;
+	public Rigidbody CachedRigidbody { get; private set; } = null;
 
 	private DropZone dropZone = null;
 	private Interactable interactable = null;
 	private bool inHand = false;
 	private Vector3 beginPosition = Vector3.zero;
-	private float teleportBackTimer = 0.0f;
 
+	
 	private void OnEnable()
 	{
-		interactable = GetComponent<Interactable>();
-		CachedRigidbody = GetComponent<Rigidbody>();
+		interactable = GetComponentIfInitialized<Interactable>();
+		CachedRigidbody = GetComponentIfInitialized<Rigidbody>();
 
-		beginPosition = CachedTransform.position;
+		CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
 		InputManager.Instance.OnGrabPinchUp += OnGrabPinchUp;
 		InputManager.Instance.OnGrabPinchDown += OnGrabButtonDown;
@@ -30,28 +30,36 @@ public class Pickupable : MonoBehaviourExtra
 		interactable.onDetachedFromHand += OnDetachedFromHand;
 	}
 
-	public void ResetPosition()
+	public IEnumerator ResetPosition()
 	{
-		if (!ShouldSnapBack)
+		if(InDropZone)
 		{
-			return;
+			Debug.Log("In drop zone");
+			yield break;
 		}
 
-		teleportBackTimer -= Time.deltaTime;
-
-		if (teleportBackTimer > 0)
+		if(inHand)
 		{
-			return;
+			Debug.Log("In hand");
+			yield break;
 		}
 
-		Debug.Log("Resetting position");
+		yield return new WaitForSeconds(TELEPORT_BACK_TIME);
+
 		CachedTransform.position = beginPosition;
+
+		CachedRigidbody.velocity = Vector3.zero;
 		CachedRigidbody.constraints = RigidbodyConstraints.None;
+
+		Debug.Log("Position is reset!");
 	}
 
 	private void Update()
 	{
-		ResetPosition();
+		if (CachedRigidbody.constraints != RigidbodyConstraints.None)
+		{
+			StartCoroutine(ResetPosition());
+		}
 	}
 
 	private void OnTriggerEnter(Collider other) => dropZone = other.GetComponent<DropZone>();
@@ -81,8 +89,15 @@ public class Pickupable : MonoBehaviourExtra
 	private void OnDetachedFromHand(Hand hand)
 	{
 		inHand = false;
-		ShouldSnapBack = true;
-		
-		teleportBackTimer += TELEPORT_BACK_TIME;
+		Debug.Log("OnDetachedFromHand");
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(beginPosition == Vector3.zero)
+		{
+			CachedRigidbody.velocity = Vector3.zero;
+			beginPosition = CachedTransform.position;
+		}
 	}
 }
