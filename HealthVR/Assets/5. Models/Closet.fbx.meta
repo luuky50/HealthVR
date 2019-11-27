@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: 09392d7425ff1d849a0c1df2538d4751
+guid: e73eaffc63bb20d4ab6f055414b5af60
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LiverFiber
-    second: {fileID: 2100000, guid: b0e3cdb98edb9f340bce377b7f84581d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat
-    second: {fileID: 2100000, guid: 14a56a8ef74410646aad27699055752b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TransParentPart
-    second: {fileID: 2100000, guid: 97856e21d98da6449a62bb2593002065, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -49,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1.5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -74,7 +59,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 0
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
@@ -95,7 +80,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1.5
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
