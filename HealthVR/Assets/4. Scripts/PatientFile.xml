@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PatientFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Patients>
+
+    <Patient>
+      <PatientID>0</PatientID>
+      <PhotoID>0</PhotoID>
+      <Name>Anna de Jong</Name>
+      <Age>30</Age>
+      <BloodType>B-Positief</BloodType>
+      <PatientEyecolor>Groen</PatientEyecolor>
+      <PatientHaircolor>Blonde</PatientHaircolor>
+      <PatientSex>Female</PatientSex>
+      <PatientDisorder>
+        Pijn op de borst
+        Moeite met ademhalen
+        Hartkoppoingen
+        Misselijkheid
+        Pijn in de armen
+      </PatientDisorder>
+
+    </Patient>
+    <Patient>
+      <PatientID>1</PatientID>
+      <PhotoID>1</PhotoID>
+      <Name>Mark Johannes</Name>
+      <Age>33</Age>
+      <BloodType>B-Negatief</BloodType>
+      <PatientEyecolor>Groen</PatientEyecolor>
+      <PatientHaircolor>Brown</PatientHaircolor>
+      <PatientSex>Male</PatientSex>
+      <PatientDisorder>
+        Pijn in de buurt
+        Kortademend
+        Moeite met ademhalen
+        Hoesten
+        Benauwd
+      </PatientDisorder>
+    </Patient>
+
+    <Patient>
+      <PatientID>2</PatientID>
+      <PhotoID>2</PhotoID>
+      <Name>Henk Pot</Name>
+      <Age>37</Age>
+      <BloodType>B-Negatief</BloodType>
+      <PatientEyecolor>Groen</PatientEyecolor>
+      <PatientHaircolor>Brown</PatientHaircolor>
+      <PatientSex>Male</PatientSex>
+      <PatientDisorder>
+         Misselijkheid en braken
+         vermoeid
+         Gele verkleuring van de huid
+         gewichtsverlies
+         Pijn rechtsboven in de buik
+      </PatientDisorder>
+    </Patient>
+
+    <Patient>
+      <PatientID>3</PatientID>
+      <PhotoID>3</PhotoID>
+      <Name>Liesbeth kleine</Name>
+      <Age>30</Age>
+      <BloodType>B-Negatief</BloodType>
+      <PatientEyecolor>Blauw</PatientEyecolor>
+      <PatientHaircolor>Blond</PatientHaircolor>
+      <PatientSex>Female</PatientSex>
+      <PatientDisorder>
+        Pijn in borst
+        Hoesten
+        Kortademend
+        Benauwd
+      </PatientDisorder>
+    </Patient>
+
+  </Patients>
+</PatientFile>
