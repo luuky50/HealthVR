@@ -67,13 +67,13 @@ public class Pickupable : MonoBehaviourExtra
 
 	private void OnGrabPinchUp(Valve.VR.SteamVR_Input_Sources inputScource)
 	{
-		if (dropZone == null || !inHand)
+		if (dropZone == null)
 		{
 			return;
 		}
 
 		Debug.Log("OnGrabPinchUp");
-		dropZone.Occupy(this);
+		dropZone.Occupy(this);			
 	}
 
 	private void OnGrabButtonDown(Valve.VR.SteamVR_Input_Sources inputScource)
@@ -89,8 +89,15 @@ public class Pickupable : MonoBehaviourExtra
 	private void OnAttachedToHand(Hand hand) => inHand = true;
 	private void OnDetachedFromHand(Hand hand)
 	{
-		inHand = false;
 		Debug.Log("OnDetachedFromHand");
+		inHand = false;
+
+		if(InDropZone)
+		{
+			return;
+		}
+
+		CachedRigidbody.constraints = RigidbodyConstraints.None;
 	}
 
 	private void OnCollisionEnter(Collision collision)
