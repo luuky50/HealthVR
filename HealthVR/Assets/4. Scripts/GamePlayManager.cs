@@ -10,12 +10,19 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
 	public UniFixEvent OnGameFinished;
 
+	[SerializeField] List<Pickupable> pickupables;
+
 	private bool firstSceneSwitch = false;
 
 	public List<Bed> ShuffleBedList(List<Bed> beds)
 	{
 		List<Bed> shuffledList = beds.OrderBy(x => Random.value).ToList();
 		return shuffledList;
+	}
+
+	private void OnNextMiniGame()
+	{
+
 	}
 
 	private void OnGameIsFinished()
