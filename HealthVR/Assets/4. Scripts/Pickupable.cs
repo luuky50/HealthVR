@@ -72,6 +72,7 @@ public class Pickupable : MonoBehaviourExtra
 			return;
 		}
 
+		Debug.Log("OnGrabPinchUp");
 		dropZone.Occupy(this);
 	}
 
@@ -96,6 +97,7 @@ public class Pickupable : MonoBehaviourExtra
 	{
 		if(beginPosition == Vector3.zero)
 		{
+			Debug.Log("Setting begin position...");
 			CachedRigidbody.velocity = Vector3.zero;
 			beginPosition = CachedTransform.position;
 		}
