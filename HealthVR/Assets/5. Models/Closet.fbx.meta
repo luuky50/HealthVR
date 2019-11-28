@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 14fec0b56f55f8a44b5f9d334566fa24
+guid: e73eaffc63bb20d4ab6f055414b5af60
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: intestine
-    second: {fileID: 2100000, guid: 1cd420decd36dcf45a847074e42e783d, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -64,7 +59,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 0
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4

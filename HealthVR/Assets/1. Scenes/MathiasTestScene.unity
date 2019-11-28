@@ -1002,7 +1002,7 @@ PrefabInstance:
     - target: {fileID: 778683904823896277, guid: 13da515898b886b4eb39a1e2a139e265,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0005502403
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 778683904823896277, guid: 13da515898b886b4eb39a1e2a139e265,
         type: 3}
@@ -1111,9 +1111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabPinchAction:
     actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  grabGribAction:
-    actionPath: 
     needsReinit: 0
 --- !u!1 &993122675
 GameObject:

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14fec0b56f55f8a44b5f9d334566fa24
+guid: 954f14cf49306294d95441dd17ddf0fb
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: intestine
-    second: {fileID: 2100000, guid: 1cd420decd36dcf45a847074e42e783d, type: 2}
+      name: Metal
+    second: {fileID: 2100000, guid: 5533c47e30e2f3a49933a219633cb1b4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

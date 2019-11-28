@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14fec0b56f55f8a44b5f9d334566fa24
+guid: 09392d7425ff1d849a0c1df2538d4751
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: intestine
-    second: {fileID: 2100000, guid: 1cd420decd36dcf45a847074e42e783d, type: 2}
+      name: LiverFiber
+    second: {fileID: 2100000, guid: b0e3cdb98edb9f340bce377b7f84581d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat
+    second: {fileID: 2100000, guid: 14a56a8ef74410646aad27699055752b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TransParentPart
+    second: {fileID: 2100000, guid: 97856e21d98da6449a62bb2593002065, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +49,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -85,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 1.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
