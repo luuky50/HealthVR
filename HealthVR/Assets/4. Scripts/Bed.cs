@@ -10,14 +10,16 @@ public class Bed : MonoBehaviour
 	public void MoveOut()
 	{
 		LeanTween.move(gameObject, turningPoint.position, 2);
-		LeanTween.rotateY(gameObject, 0, 1);
+		LeanTween.rotateY(gameObject, 90, 1);
+		LeanTween.move(gameObject, moveOutPoint.position, 2);
 		gameObject.SetActive(false);
 	}
 
 	public void MoveIn()
 	{
 		LeanTween.move(gameObject, turningPoint.position, 2);
-		LeanTween.rotateY(gameObject, 90, 1);
+		LeanTween.rotateY(gameObject, 0, 1);
+		LeanTween.move(gameObject, moveInPoint, 2);
 	}
 
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BedManager : Singleton<BedManager>
 {
+	private bool canFinish = true;
 	[SerializeField] private List<Bed> beds;
 	private Bed currentBedInRoom;
 	private Bed nextBed;
@@ -13,6 +14,10 @@ public class BedManager : Singleton<BedManager>
 	private void OnEnable()
 	{
 		GameManager.Instance.onMinigameCompleted.AddListener(MoveBeds);
+		GamePlayManager.Instance.ShuffleBedList(beds);
+		currentBedInRoom = beds[0];
+		nextBed = beds[1];
+		currentBedInRoom.MoveIn();
 	}
 
 	private void MoveBeds()
@@ -31,7 +36,17 @@ public class BedManager : Singleton<BedManager>
 		}
 		if(beds.IndexOf(currentBedInRoom)  == beds.Count - 1)
 		{
-			//Game Completed
+			try
+			{
+				if (canFinish)
+				{
+					GamePlayManager.Instance.OnGameFinished.Invoke();
+				}
+			}
+			catch
+			{
+				Debug.Log("Cant finish");
+			}
 		}
 	}
 

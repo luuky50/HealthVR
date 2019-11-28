@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/1. Scenes/Snapping Scene.unity
-    guid: 2aa75e5f1887d1b49a066a09ceebc4c3
+    path: Assets/1. Scenes/StartUI.unity
+    guid: bbadc52570ec46b43bae555f405656eb
+  - enabled: 1
+    path: Assets/1. Scenes/Final Build Scene.unity
+    guid: e7b78a9c2e48b1c48be4210d8353694f
+  - enabled: 1
+    path: Assets/1. Scenes/EndUI.unity
+    guid: 1132e72c54931a049b7766ee5ecbbe4e
   m_configObjects: {}
