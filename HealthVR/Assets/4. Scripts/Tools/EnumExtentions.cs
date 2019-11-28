@@ -1,20 +1,28 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace UniFix
 {
-	public static class EnumExtentions<TEnum>
+	/// <summary> MADE BY: Mathias Bevers
+	/// The syntax for some enum functions is a bit strange, this helps making it a bit more clear.
+	/// </summary>
+	/// <typeparam name="TEnum">The enum to use one of the functions</typeparam>
+	public static class EnumExtensions<TEnum>
 	{
+		/// <summary>
+		/// Gives back the amount of enum members.
+		/// </summary>
 		public static int Count => Enum.GetNames(typeof(TEnum)).Length;
 
+		/// <summary>
+		/// Gives back one random enum from the enum members. 
+		/// </summary>
 		public static TEnum Random
 		{
 			get
 			{
 				if (!typeof(TEnum).IsEnum)
 				{
-					throw new ArgumentException("TEnum is not an enum");
+					throw new ArgumentException($"{typeof(TEnum).Name} is not an enum");
 				}
 
 				int count = Enum.GetNames(typeof(TEnum)).Length;

@@ -2,14 +2,22 @@
 
 namespace UniFix
 {
+	/// <summary> MADE BY: Mathias Bevers
+	/// There are some functions that should be, in my opinion, in MonoBehaviour that aren't.
+	/// Now scripts can inherit from MonoBehaviourExtra to have access to the extra functions.
+	/// </summary>
 	public class MonoBehaviourExtra : MonoBehaviour
 	{
+		/// <summary> 
+		/// Unity's build in "transform" gets the transform-component every time.
+		/// CachedTransform only does that once and stores it in a variable you can access.
+		/// </summary>
 		private Transform cachedTransform = null;
 		public Transform CachedTransform
 		{
 			get
 			{
-				if(cachedTransform == null)
+				if (cachedTransform == null)
 				{
 					cachedTransform = transform;
 				}
@@ -18,13 +26,29 @@ namespace UniFix
 			}
 		}
 
+		/// <summary>
+		/// CachedRectTransform gets the CachedTransform as RectTransform.
+		/// </summary>
 		public RectTransform CachedRectTransform => CachedTransform as RectTransform;
-		
-		public bool HasComponent<T>() where T : Component
-		{
-			T component = GetComponent<T>();
 
-			if(component == null)
+		/// <summary>
+		/// While looping through all the children, they get destroyed.
+		/// </summary>
+		public void DestroyChilderen()
+		{
+			foreach (Transform child in CachedTransform)
+			{
+				Destroy(child);
+			}
+		}
+
+		/// <typeparam name="TComponent">The compnent that needs to be checked. It has to inherit from compnent</typeparam>
+		/// <returns>Returns true if it has "TComponent"</returns>
+		public bool HasComponent<TComponent>() where TComponent : Component
+		{
+			TComponent component = GetComponent<TComponent>();
+
+			if (component == null)
 			{
 				return false;
 			}
@@ -32,30 +56,34 @@ namespace UniFix
 			return true;
 		}
 
-		public T GetComponentIfInitialized<T>() where T : Component
+		/// <typeparam name="TComponent">The component that is requested. It has to inherit from compnent</typeparam>
+		/// <returns>TCompent if it exists</returns>
+		public TComponent GetComponentIfInitialized<TComponent>() where TComponent : Component
 		{
-			T component = GetComponent<T>();
+			TComponent component = GetComponent<TComponent>();
 
-			if(component == null)
+			if (component == null)
 			{
-				throw new NoComponentFoundException(typeof(T).Name);
+				throw new NoComponentFoundException(typeof(TComponent).Name);
 			}
 
 			return component;
 		}
 
-		public void EnsureComponent<T>() where T : Component
+		/// <summary>
+		/// When an component is absolutely necessary EnsureComonent make sure that the component exists.
+		/// </summary>
+		/// <typeparam name="TComponent">The requested compnent</typeparam>
+		public void EnsureComponent<TComponent>() where TComponent : Component
 		{
-			T component = GetComponent<T>();
+			TComponent component = GetComponent<TComponent>();
 
-			if(component != null)
+			if (component != null)
 			{
-				Debug.Log($"Already has a {typeof(T).Name} component.");
 				return;
 			}
 
-			Debug.Log($"Adding {typeof(T).Name} component...");
-			gameObject.AddComponent<T>();
+			gameObject.AddComponent<TComponent>();
 		}
 	}
 }
