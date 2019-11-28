@@ -7,6 +7,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using Valve.VR.InteractionSystem;
+
 
 namespace Valve.VR.InteractionSystem
 {
@@ -28,6 +30,9 @@ namespace Valve.VR.InteractionSystem
         public HandEvent onButtonUp;
         public HandEvent onButtonIsPressed;
 
+        //[SerializeField]
+        //private ButtonPuzzle buttonPuzzle;
+
         public bool engaged = false;
         public bool buttonDown = false;
         public bool buttonUp = false;
@@ -47,6 +52,8 @@ namespace Valve.VR.InteractionSystem
 
         public bool test = true;
 
+        public bool isPressed = false;
+
         private void Start()
         {
             rigidbody3D = GetComponent<Rigidbody>();
@@ -60,6 +67,7 @@ namespace Valve.VR.InteractionSystem
 
         private void HandHoverUpdate(Hand hand)
         {
+            if (!isPressed){
             hovering = true;
             lastHoveredHand = hand;
 
@@ -70,7 +78,7 @@ namespace Valve.VR.InteractionSystem
 
             if (currentDistance > enteredDistance)
             {
-                Debug.Log("123");
+                //Debug.Log("123");
                 enteredDistance = currentDistance;
                 handEnteredPosition = movingPart.parent.InverseTransformPoint(hand.transform.position);
             }
@@ -87,6 +95,7 @@ namespace Valve.VR.InteractionSystem
             movingPart.localPosition = Vector3.Lerp(startPosition, endPosition, lerp);
 
             InvokeEvents(wasEngaged, engaged);
+            }
         }
 
         private void Update()
@@ -94,19 +103,27 @@ namespace Valve.VR.InteractionSystem
             Debug.Log(this.gameObject.transform.localPosition.y);
             if(this.gameObject.transform.localPosition.y <= 0.30f)
             {
-                this.gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, -100f, gameObject.transform.localPosition.z);
+                Pushed();
             }
 
            
             if (test == false)
             {
+                isPressed = false;
                 this.gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, .25f, gameObject.transform.localPosition.z);
                 movingPart.localPosition = startPosition;
                 handEnteredPosition = endPosition;
 
                 InvokeEvents(engaged, false);
                 engaged = false;
+                test = true;
             }
+        }
+        public void Pushed()
+        {
+            isPressed = true;
+            Debug.Log("Push is running");
+            this.gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, -100f, gameObject.transform.localPosition.z);
         }
 
         private void InvokeEvents(bool wasEngaged, bool isEngaged)

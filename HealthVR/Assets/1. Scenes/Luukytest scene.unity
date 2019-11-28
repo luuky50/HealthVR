@@ -1146,42 +1146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0e35ef0cc211b408d2d7e7eb0f850d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 982092367}
-  localMoveDistance: {x: 0, y: -0.3, z: 0}
-  engageAtPercent: 1
-  disengageAtPercent: 0
-  onButtonDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 982092375}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonIsPressed:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  engaged: 0
-  buttonDown: 0
-  buttonUp: 0
-  forceDown: 0
-  rigidbody3D: {fileID: 0}
-  test: 1
 --- !u!114 &982092375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,8 +1158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f38673fcb1d6234b85ba56ffb8fbd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fault: 0
-  buttonPressed: {fileID: 0}
+  hoverButton: {fileID: 0}
+  Buttons: []
   inputarray: []
   correctarray: []
 --- !u!1 &996565852
@@ -1288,7 +1252,7 @@ GameObject:
   - component: {fileID: 1048639809}
   - component: {fileID: 1048639808}
   - component: {fileID: 1048639806}
-  - component: {fileID: 1048639805}
+  - component: {fileID: 1048639804}
   m_Layer: 0
   m_Name: Button 2
   m_TagString: Untagged
@@ -1310,7 +1274,7 @@ Transform:
   m_Father: {fileID: 1669412204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1048639805
+--- !u!114 &1048639804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1319,27 +1283,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1048639802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0e35ef0cc211b408d2d7e7eb0f850d, type: 3}
+  m_Script: {fileID: 11500000, guid: ed833d7b62c963542bbd22bc3d30e438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingPart: {fileID: 1048639803}
   localMoveDistance: {x: 0, y: -0.3, z: 0}
   engageAtPercent: 0.95
-  disengageAtPercent: 0
+  disengageAtPercent: 0.9
   onButtonDown:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578309171}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 3
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onButtonUp:
@@ -1355,9 +1308,10 @@ MonoBehaviour:
   engaged: 0
   buttonDown: 0
   buttonUp: 0
-  forceDown: 1
+  forceDown: 0
   rigidbody3D: {fileID: 0}
   test: 1
+  isPressed: 0
 --- !u!114 &1048639806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,8 +1936,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f38673fcb1d6234b85ba56ffb8fbd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fault: 0
-  buttonPressed: {fileID: 0}
+  hoverButton: {fileID: 0}
+  Buttons:
+  - {fileID: 1833818649}
+  - {fileID: 1048639802}
+  - {fileID: 1920639209}
+  - {fileID: 1784698037}
   inputarray: []
   correctarray:
   - {fileID: 1920639209}
@@ -2220,7 +2178,7 @@ GameObject:
   - component: {fileID: 1784698043}
   - component: {fileID: 1784698042}
   - component: {fileID: 1784698041}
-  - component: {fileID: 1784698040}
+  - component: {fileID: 1784698039}
   m_Layer: 0
   m_Name: Button 4
   m_TagString: Untagged
@@ -2242,7 +2200,7 @@ Transform:
   m_Father: {fileID: 1726930160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1784698040
+--- !u!114 &1784698039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2251,14 +2209,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784698037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0e35ef0cc211b408d2d7e7eb0f850d, type: 3}
+  m_Script: {fileID: 11500000, guid: ed833d7b62c963542bbd22bc3d30e438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingPart: {fileID: 1784698038}
   localMoveDistance: {x: 0, y: -0.3, z: 0}
   engageAtPercent: 0.95
-  disengageAtPercent: 0
+  disengageAtPercent: 0.9
   onButtonDown:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onButtonUp:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onButtonIsPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1578309171}
@@ -2269,27 +2237,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 4
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonIsPressed:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   engaged: 0
   buttonDown: 0
   buttonUp: 0
-  forceDown: 1
+  forceDown: 0
   rigidbody3D: {fileID: 0}
   test: 1
+  isPressed: 0
 --- !u!114 &1784698041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2429,7 +2388,7 @@ GameObject:
   - component: {fileID: 1833818654}
   - component: {fileID: 1833818653}
   - component: {fileID: 1833818657}
-  - component: {fileID: 1833818656}
+  - component: {fileID: 1833818651}
   m_Layer: 0
   m_Name: Button 1
   m_TagString: Untagged
@@ -2451,6 +2410,44 @@ Transform:
   m_Father: {fileID: 665171378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833818651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833818649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed833d7b62c963542bbd22bc3d30e438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingPart: {fileID: 1833818650}
+  localMoveDistance: {x: 0, y: -0.3, z: 0}
+  engageAtPercent: 0.95
+  disengageAtPercent: 0.9
+  onButtonDown:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onButtonUp:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onButtonIsPressed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  engaged: 0
+  buttonDown: 0
+  buttonUp: 0
+  forceDown: 0
+  rigidbody3D: {fileID: 0}
+  test: 1
+  isPressed: 0
 --- !u!65 &1833818653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2509,54 +2506,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833818649}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1833818656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833818649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0e35ef0cc211b408d2d7e7eb0f850d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingPart: {fileID: 1833818650}
-  localMoveDistance: {x: 0, y: -0.3, z: 0}
-  engageAtPercent: 0.95
-  disengageAtPercent: 0
-  onButtonDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578309171}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 2
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonIsPressed:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  engaged: 0
-  buttonDown: 0
-  buttonUp: 0
-  forceDown: 1
-  rigidbody3D: {fileID: 0}
-  test: 1
 --- !u!114 &1833818657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2621,8 +2570,8 @@ GameObject:
   - component: {fileID: 1920639217}
   - component: {fileID: 1920639216}
   - component: {fileID: 1920639213}
-  - component: {fileID: 1920639212}
   - component: {fileID: 1920639211}
+  - component: {fileID: 1920639214}
   m_Layer: 0
   m_Name: Button 3
   m_TagString: Untagged
@@ -2657,54 +2606,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.0000076293945, y: 0.0000019073486, z: -0.00000047683716}
---- !u!114 &1920639212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920639209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0e35ef0cc211b408d2d7e7eb0f850d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingPart: {fileID: 1920639210}
-  localMoveDistance: {x: 0, y: -0.3, z: 0}
-  engageAtPercent: 0.95
-  disengageAtPercent: 0
-  onButtonDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1578309171}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 1
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  onButtonIsPressed:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  engaged: 0
-  buttonDown: 0
-  buttonUp: 0
-  forceDown: 1
-  rigidbody3D: {fileID: 0}
-  test: 1
 --- !u!114 &1920639213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,6 +2658,55 @@ MonoBehaviour:
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
+--- !u!114 &1920639214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920639209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed833d7b62c963542bbd22bc3d30e438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingPart: {fileID: 1920639210}
+  localMoveDistance: {x: 0, y: -0.3, z: 0}
+  engageAtPercent: 0.95
+  disengageAtPercent: 0.9
+  onButtonDown:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onButtonUp:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onButtonIsPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578309171}
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  engaged: 0
+  buttonDown: 0
+  buttonUp: 0
+  forceDown: 0
+  rigidbody3D: {fileID: 0}
+  test: 1
+  isPressed: 0
 --- !u!23 &1920639216
 MeshRenderer:
   m_ObjectHideFlags: 0
