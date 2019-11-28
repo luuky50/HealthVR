@@ -52,6 +52,7 @@ public class Pickupable : MonoBehaviourExtra
 		CachedRigidbody.constraints = RigidbodyConstraints.None;
 
 		Debug.Log("Position is reset!");
+		StopAllCoroutines();
 	}
 
 	private void Update()
@@ -62,17 +63,27 @@ public class Pickupable : MonoBehaviourExtra
 		}
 	}
 
-	private void OnTriggerEnter(Collider other) => dropZone = other.GetComponent<DropZone>();
+	private void OnTriggerEnter(Collider other)
+	{
+		 dropZone = other.GetComponent<DropZone>();
+		 Debug.Log($"Entered {other.name}");
+
+		 if(dropZone == null)
+		 {
+			Debug.LogError("No DropZone found");
+		 }
+	}
 	private void OnTriggerExit(Collider other) => dropZone = null;
 
 	private void OnGrabPinchUp(Valve.VR.SteamVR_Input_Sources inputScource)
 	{
+		Debug.Log("OnGrabPinchUp");
+
 		if (dropZone == null)
 		{
 			return;
 		}
 
-		Debug.Log("OnGrabPinchUp");
 		dropZone.Occupy(this);			
 	}
 
@@ -87,9 +98,9 @@ public class Pickupable : MonoBehaviourExtra
 	}
 
 	private void OnAttachedToHand(Hand hand) => inHand = true;
+
 	private void OnDetachedFromHand(Hand hand)
 	{
-		Debug.Log("OnDetachedFromHand");
 		inHand = false;
 
 		if(InDropZone)
@@ -104,7 +115,6 @@ public class Pickupable : MonoBehaviourExtra
 	{
 		if(beginPosition == Vector3.zero)
 		{
-			Debug.Log("Setting begin position...");
 			CachedRigidbody.velocity = Vector3.zero;
 			beginPosition = CachedTransform.position;
 		}

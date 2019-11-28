@@ -10,13 +10,13 @@ public class DropZone : MonoBehaviourExtra
 		
 	public void Occupy(Pickupable occupyingPickupable)
 	{
+		Debug.Log("Trying to occupy...");
+
 		if (IsOccupied)
 		{
 			occupyingPickupable.ResetPosition();
 			return;
 		}
-
-		Debug.Log("Occupying...");
 
 		this.occupyingPickupable = occupyingPickupable;
 
@@ -25,6 +25,8 @@ public class DropZone : MonoBehaviourExtra
 		occupyingPickupable.InDropZone = true;
 		occupyingPickupable.CachedTransform.position = CachedTransform.position;
 		occupyingPickupable.CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
+		
+		Debug.Log("Occupied!");
 
 		if(!IsRightDroppedObject(occupyingPickupable))
 		{

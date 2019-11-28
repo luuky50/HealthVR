@@ -1053,6 +1053,10 @@ PrefabInstance:
       propertyPath: desiredPickupable
       value: 
       objectReference: {fileID: 1000685157}
+    - target: {fileID: 1886211859, guid: 13da515898b886b4eb39a1e2a139e265, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13da515898b886b4eb39a1e2a139e265, type: 3}
 --- !u!4 &674733044 stripped
