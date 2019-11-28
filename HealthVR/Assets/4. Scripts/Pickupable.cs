@@ -56,7 +56,7 @@ public class Pickupable : MonoBehaviourExtra
 
 	private void Update()
 	{
-		if (CachedRigidbody.velocity.x != 0.0f || CachedRigidbody.velocity.z != 0.0f)
+		if (CachedRigidbody.velocity.x != 0.0f || CachedRigidbody.velocity.z != 0.0f && !inHand)
 		{
 			StartCoroutine(ResetPosition());
 		}
