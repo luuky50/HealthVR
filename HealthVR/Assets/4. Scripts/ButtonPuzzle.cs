@@ -1,21 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniFix;
 
-public class ButtonPuzzle : MonoBehaviour
+namespace Valve.VR.InteractionSystem
 {
-    public bool fault = false;
-    [SerializeField]
-    private GameObject buttonPressed;
-
-    [SerializeField]
-    private List<GameObject> inputarray = new List<GameObject>();
-
-    [SerializeField]
-    private List<GameObject> correctarray = new List<GameObject>();
-
-    public void ButtonPressed()
+    public class ButtonPuzzle : MonoBehaviour
     {
-        //inputarray.Add(gameObject.GetComponent());
-    }
+        //public bool fault = false;
+
+        public UniFixEvent<GameObject> OnButtonPressed = new UniFixEvent<GameObject>();
+        public HoverButton hoverButton;
+    
+        private GameObject buttonPressed;
+
+        [SerializeField]
+        private List<GameObject> Buttons = new List<GameObject>();
+
+        [SerializeField]
+        private List<GameObject> inputarray = new List<GameObject>();
+
+        [SerializeField]
+        private List<GameObject> correctarray = new List<GameObject>();
+
+        private void Start()
+        {
+            OnButtonPressed.AddListener(ButtonPressed);
+        }
+        public void ButtonPressed(GameObject ButtonPressed)
+        {
+            Debug.Log("Button is pressed");
+            inputarray.Add(ButtonPressed);
+        }
+    }   
 }

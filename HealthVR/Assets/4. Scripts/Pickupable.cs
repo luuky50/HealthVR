@@ -49,6 +49,10 @@ public class Pickupable : MonoBehaviourExtra
 		CachedTransform.position = beginPosition;
 
 		CachedRigidbody.velocity = Vector3.zero;
+		CachedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+
+		yield return null;
+
 		CachedRigidbody.constraints = RigidbodyConstraints.None;
 
 		Debug.Log("Position is reset!");
@@ -57,7 +61,7 @@ public class Pickupable : MonoBehaviourExtra
 
 	private void Update()
 	{
-		if (CachedRigidbody.velocity.x != 0.0f || CachedRigidbody.velocity.z != 0.0f && !inHand)
+		if (CachedRigidbody.velocity != Vector3.zero || CachedRigidbody.constraints != RigidbodyConstraints.FreezeAll && !inHand)
 		{
 			StartCoroutine(ResetPosition());
 		}
