@@ -156,6 +156,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7404566460090355408, guid: cbb970390d5ca744bb21f3a992a18d6d,
+        type: 3}
+      propertyPath: desiredPickupable
+      value: 
+      objectReference: {fileID: 5572187163412294487, guid: fa47046f80509594196fb70f8658b931,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbb970390d5ca744bb21f3a992a18d6d, type: 3}
 --- !u!4 &241849055805576069 stripped

@@ -20,18 +20,14 @@ public class GamePlayManager : Singleton<GamePlayManager>
 		return shuffledList;
 	}
 
-	private void OnNextMiniGame()
-	{
-
-	}
-
 	private void OnGameIsFinished()
 	{
 		SceneManager.LoadScene(2);
 	}
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		DontDestroyOnLoad(this);
 		if (!firstSceneSwitch)
 			StartCoroutine("TimeTillStartGame");
@@ -40,6 +36,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
 	private IEnumerator TimeTillStartGame()
 	{
 		yield return new WaitForSeconds(30);
+		firstSceneSwitch = true;
 		SceneManager.LoadScene(1);
 	}
 
