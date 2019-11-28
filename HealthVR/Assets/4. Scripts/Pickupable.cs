@@ -35,13 +35,13 @@ public class Pickupable : MonoBehaviourExtra
 		if(InDropZone)
 		{
 			Debug.Log("In drop zone");
-			yield break;
+			yield return null;
 		}
 
 		if(inHand)
 		{
 			Debug.Log("In hand");
-			yield break;
+			yield return null;
 		}
 
 		yield return new WaitForSeconds(TELEPORT_BACK_TIME);
