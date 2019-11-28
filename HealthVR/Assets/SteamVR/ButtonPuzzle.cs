@@ -11,12 +11,12 @@ namespace Valve.VR.InteractionSystem
 
         public UniFixEvent<GameObject> OnButtonPressed = new UniFixEvent<GameObject>();
         public HoverButton hoverButton;
-    
+        //public UniFixEvent<GameObject>
+
         private GameObject buttonPressed;
 
-        [SerializeField]
-        private List<GameObject> Buttons = new List<GameObject>();
-
+        public bool gm = false;
+        
         [SerializeField]
         private List<GameObject> inputarray = new List<GameObject>();
 
@@ -31,6 +31,17 @@ namespace Valve.VR.InteractionSystem
         {
             Debug.Log("Button is pressed");
             inputarray.Add(ButtonPressed);
+            for (int i = 0; i < inputarray.Count; i++)
+            {
+                if (inputarray[i] == correctarray[i])
+                    gm = true;
+                else
+                {
+                    hoverButton.ButtonsHigh();
+                    Debug.Log("Geen idee");
+                }
+            }
         }
-    }   
+    }
 }
+
