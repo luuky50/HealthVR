@@ -11,16 +11,18 @@ public class Pickupable : MonoBehaviourExtra
 	public bool InDropZone { get; set; } = false;
 	public Rigidbody CachedRigidbody { get; private set; } = null;
 
+	[SerializeField] private Transform resetPosition;
+
 	private DropZone dropZone = null;
 	private Interactable interactable = null;
 	private bool inHand = false;
-	private Vector3 beginPosition = Vector3.zero;
-
-	
+	private Vector3 beginPosition => resetPosition.position;
 	private void OnEnable()
 	{
 		interactable = GetComponentIfInitialized<Interactable>();
 		CachedRigidbody = GetComponentIfInitialized<Rigidbody>();
+
+		resetPosition = transform.parent.FindChild("ResetPosition").transform;
 
 		CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
@@ -111,12 +113,12 @@ public class Pickupable : MonoBehaviourExtra
 		CachedRigidbody.constraints = RigidbodyConstraints.None;
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	/*private void OnCollisionEnter(Collision collision)
 	{
 		if(beginPosition == Vector3.zero)
 		{
 			CachedRigidbody.velocity = Vector3.zero;
 			beginPosition = CachedTransform.position;
 		}
-	}
+	}*/
 }
