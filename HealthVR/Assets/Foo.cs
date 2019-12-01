@@ -20,6 +20,7 @@ namespace Valve.VR.InteractionSystem
         {
             if (obj.GetComponent<ButtonPuzzle>().gm && !test)
             {
+                Debug.Log("First if in foo");
                 test = true;
                 foo();
 
@@ -28,6 +29,7 @@ namespace Valve.VR.InteractionSystem
 
         public void foo()
         {
+            Debug.Log("To the instance");
             GameManager.Instance.onMinigameCompleted?.Invoke();
             test = !test;
         }

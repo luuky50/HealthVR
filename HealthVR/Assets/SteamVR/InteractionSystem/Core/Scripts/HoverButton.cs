@@ -52,7 +52,7 @@ namespace Valve.VR.InteractionSystem
 
         public bool test = true;
 
-        public bool isPressed = false;
+        public bool isPressed;
 
         private void Start()
         {
@@ -109,7 +109,7 @@ namespace Valve.VR.InteractionSystem
             }
 
            
-            if (test == false)
+            if (buttonPuzzle.fault == true)
             {
                 ButtonsHigh();
             }
@@ -118,10 +118,10 @@ namespace Valve.VR.InteractionSystem
         {
             if (!isPressed)
             {
-                buttonPuzzle.ButtonPressed(gameObject);
                 isPressed = true;
-                Debug.Log("Push is running");
                 this.gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, -100f, gameObject.transform.localPosition.z);
+                buttonPuzzle.ButtonPressed(gameObject);
+                Debug.Log("Push is running");
             }
         }
         public void ButtonsHigh()
