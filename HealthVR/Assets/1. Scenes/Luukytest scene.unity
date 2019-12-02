@@ -267,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 909167873414821048, guid: fac5950861db646439efc0ab6058b315,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 909167873414821048, guid: fac5950861db646439efc0ab6058b315,
         type: 3}
@@ -628,8 +628,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &486450251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486450252}
+  - component: {fileID: 486450253}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &486450252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486450251}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.29, y: -0.1548, z: 0.402}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486450253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486450251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af979839750d4348bd49ab8bbce47a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 1578309169}
 --- !u!1 &665171374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverButton: {fileID: 0}
-  Buttons: []
+  gm: 0
   inputarray: []
   correctarray: []
 --- !u!1 &996565852
@@ -1305,11 +1349,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  buttonPuzzle: {fileID: 0}
   engaged: 0
   buttonDown: 0
   buttonUp: 0
   forceDown: 0
-  rigidbody3D: {fileID: 0}
   test: 1
   isPressed: 0
 --- !u!114 &1048639806
@@ -1642,7 +1686,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 150cf460af79e62499119d909ad0c43d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 150cf460af79e62499119d909ad0c43d,
         type: 3}
@@ -1702,7 +1746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010733554458, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000010733554458, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1887,7 +1931,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578309169
 GameObject:
@@ -1937,11 +1981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverButton: {fileID: 0}
-  Buttons:
-  - {fileID: 1833818649}
-  - {fileID: 1048639802}
-  - {fileID: 1920639209}
-  - {fileID: 1784698037}
+  gm: 0
   inputarray: []
   correctarray:
   - {fileID: 1920639209}
@@ -2242,11 +2282,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  buttonPuzzle: {fileID: 0}
   engaged: 0
   buttonDown: 0
   buttonUp: 0
   forceDown: 0
-  rigidbody3D: {fileID: 0}
   test: 1
   isPressed: 0
 --- !u!114 &1784698041
@@ -2441,11 +2481,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  buttonPuzzle: {fileID: 0}
   engaged: 0
   buttonDown: 0
   buttonUp: 0
   forceDown: 0
-  rigidbody3D: {fileID: 0}
   test: 1
   isPressed: 0
 --- !u!65 &1833818653
@@ -2700,11 +2740,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  buttonPuzzle: {fileID: 0}
   engaged: 0
   buttonDown: 0
   buttonUp: 0
   forceDown: 0
-  rigidbody3D: {fileID: 0}
   test: 1
   isPressed: 0
 --- !u!23 &1920639216
@@ -2841,7 +2881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943277495 stripped
 GameObject:
@@ -2997,5 +3037,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

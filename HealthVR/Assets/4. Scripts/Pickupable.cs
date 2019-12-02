@@ -22,7 +22,7 @@ public class Pickupable : MonoBehaviourExtra
 		interactable = GetComponentIfInitialized<Interactable>();
 		CachedRigidbody = GetComponentIfInitialized<Rigidbody>();
 
-		resetPosition = transform.parent.FindChild("ResetPosition").transform;
+		resetPosition = transform.parent.Find("ResetPosition").transform;
 
 		CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
