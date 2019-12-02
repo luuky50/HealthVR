@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 172515447287559736}
   - component: {fileID: 6711195669467156915}
   - component: {fileID: 5572187163412294487}
+  - component: {fileID: 2909976975131309033}
   m_Layer: 0
   m_Name: Mechanical Heart
   m_TagString: Untagged
@@ -503,3 +504,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a00e8caaafc29447b66cde036329f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
+--- !u!64 &2909976975131309033
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194001676291325072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}

@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4528088104545518230}
   - component: {fileID: 8197355287688012880}
   - component: {fileID: 7097874093872289557}
+  - component: {fileID: 7892212748646650562}
   m_Layer: 0
   m_Name: Stomach
   m_TagString: Untagged
@@ -191,3 +192,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a00e8caaafc29447b66cde036329f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
+--- !u!64 &7892212748646650562
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6948106421924936409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
