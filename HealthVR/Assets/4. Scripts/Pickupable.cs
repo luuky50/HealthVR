@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Interactable)), RequireComponent(typeof(Rigidbody))]
 public class Pickupable : MonoBehaviourExtra
 {
-	private const float TELEPORT_BACK_TIME = 3.0f;
+	/*private const float TELEPORT_BACK_TIME = 3.0f;
 
 	public bool InDropZone { get; set; } = false;
 	public Rigidbody CachedRigidbody { get; private set; } = null;
@@ -26,15 +26,24 @@ public class Pickupable : MonoBehaviourExtra
 
 		CachedRigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
-		InputManager.Instance.OnGrabPinchUp += OnGrabPinchUp;
-		InputManager.Instance.OnGrabPinchDown += OnGrabButtonDown;
-		interactable.onAttachedToHand += OnAttachedToHand;
-		interactable.onDetachedFromHand += OnDetachedFromHand;
-	}
-
-	public IEnumerator ResetPosition()
-	{
-		if(InDropZone)
+	////	InputManager.Instance.OnGrabPinchUp += OnGrabPinchUp;
+	//	InputManager.Instance.OnGrabPinchDown += OnGrabButtonDown;
+	interactable.onAttachedToHand += OnAttachedToHand;
+		interactable.onDetached
+            
+            
+            
+            
+            
+            
+            
+            
+          
+            
+          
+           
+           
+            ublic IEnumerator f(InDropZone)
 		{
 			Debug.Log("In drop zone");
 			yield return null;

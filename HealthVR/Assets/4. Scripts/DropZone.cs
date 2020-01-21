@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Transform))]
 public class DropZone : MonoBehaviourExtra
 {
-	public bool IsOccupied { get; private set; }
+	/*public bool IsOccupied { get; private set; }
 	[SerializeField] private Pickupable desiredPickupable;
 	private Pickupable occupyingPickupable = null;
 		
@@ -57,5 +57,5 @@ public class DropZone : MonoBehaviourExtra
 		}
 
 		return true;
-	}
+	}*/
 }

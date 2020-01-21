@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager>
 
 		foreach(Pickupable pickupable in Pickupables)
 		{
-			pickupable.ResetPosition();
+			//pickupable.ResetPosition();
 		}
 	}
 

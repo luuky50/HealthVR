@@ -35,7 +35,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
 	private IEnumerator TimeTillStartGame()
 	{
-		yield return new WaitForSeconds(30);
+		yield return new WaitForSeconds(2);
 		firstSceneSwitch = true;
 		SceneManager.LoadScene(1);
 	}

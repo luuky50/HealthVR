@@ -56,7 +56,7 @@ namespace Valve.VR.InteractionSystem
 
         private void Start()
         {
-            buttonPuzzle = gameObject.transform.parent.parent.GetComponent<ButtonPuzzle>();
+           buttonPuzzle = gameObject.transform.parent.GetComponent<ButtonPuzzle>();
 
             //rigidbody3D = GetComponent<Rigidbody>();
             if (movingPart == null && this.transform.childCount > 0)
@@ -103,7 +103,7 @@ namespace Valve.VR.InteractionSystem
         private void Update()
         {
             Debug.Log(this.gameObject.transform.localPosition.y);
-            if(this.gameObject.transform.localPosition.y <= 0.30f)
+            if(this.gameObject.transform.position.y <= 1.252f)
             {
                 Pushed();
             }

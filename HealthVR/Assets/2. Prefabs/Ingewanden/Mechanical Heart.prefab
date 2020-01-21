@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 962365542914671606}
   - component: {fileID: 7175459177864076707}
   - component: {fileID: 5109772287398438281}
+  - component: {fileID: 4658530935016582541}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -308,6 +309,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4658530935016582541
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869206134299294881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10370221, y: 0.11933891, z: 0.0831129}
+  m_Center: {x: 0.006690479, y: -0.021741891, z: 0.014108063}
 --- !u!1 &7665460079991175177
 GameObject:
   m_ObjectHideFlags: 0

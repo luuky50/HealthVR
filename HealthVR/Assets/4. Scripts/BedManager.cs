@@ -14,7 +14,7 @@ public class BedManager : Singleton<BedManager>
 	private void OnEnable()
 	{
 		GameManager.Instance.onMinigameCompleted.AddListener(MoveBeds);
-		GamePlayManager.Instance.ShuffleBedList(beds);
+		//GamePlayManager.Instance.ShuffleBedList(beds);
 		currentBedInRoom = beds[0];
 		nextBed = beds[1];
 		currentBedInRoom.MoveIn();
